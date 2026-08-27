@@ -52,37 +52,37 @@
 
     <div class="hobby-grid">
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Guitar', '🎸', 'Beginner', 'Learn chords, rhythm and basic guitar techniques.')">
             <div class="hobby-icon">🎸</div>
             <h3>Guitar</h3>
             <p>Learn chords, songs and techniques.</p>
         </div>
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Cooking', '🍳', 'Beginner', 'Learn recipes, cooking techniques and kitchen basics.')">
             <div class="hobby-icon">🍳</div>
             <h3>Cooking</h3>
             <p>Discover recipes and improve your skills.</p>
         </div>
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Gardening', '🌱', 'Beginner', 'Learn how to grow and care for plants.')">
             <div class="hobby-icon">🌱</div>
             <h3>Gardening</h3>
             <p>Grow plants and learn along the way.</p>
         </div>
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Drawing', '🎨', 'Beginner', 'Explore drawing techniques, shapes and creative expression.')">
             <div class="hobby-icon">🎨</div>
             <h3>Drawing</h3>
             <p>Turn your ideas into something creative.</p>
         </div>
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Photography', '📷', 'Beginner', 'Learn composition, lighting and photography basics.')">
             <div class="hobby-icon">📷</div>
             <h3>Photography</h3>
             <p>Learn to capture moments creatively.</p>
         </div>
 
-        <div class="hobby-card">
+        <div class="hobby-card" onclick="showHobby('Pottery', '🏺', 'Beginner', 'Explore pottery techniques and create with clay.')">
             <div class="hobby-icon">🏺</div>
             <h3>Pottery</h3>
             <p>Create, experiment and shape something new.</p>
@@ -185,6 +185,28 @@
     </div>
 
 </section>
+
+<div id="hobby-modal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-button" onclick="closeHobby()">×</button>
+
+        <div id="modal-icon" class="modal-icon">🎸</div>
+
+        <h2 id="modal-title">Guitar</h2>
+
+        <p id="modal-level">Beginner</p>
+
+        <p id="modal-description">
+            Learn chords, rhythm and basic guitar techniques.
+        </p>
+
+        <button class="start-button">Start Learning</button>
+
+    </div>
+
+</div>
 
     <script src="script.js"></script>
 </body>
