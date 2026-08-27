@@ -257,3 +257,62 @@ p {
     font-size: 14px;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav ul li:nth-child(3),
+    nav ul li:nth-child(4) {
+        display: none;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-buttons button {
+        width: 220px;
+    }
+
+    .hobbies {
+        padding: 60px 20px;
+    }
+
+    .hobby-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .how-it-works {
+        padding: 60px 20px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .community {
+        padding: 60px 20px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
