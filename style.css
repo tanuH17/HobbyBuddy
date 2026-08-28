@@ -295,7 +295,7 @@ p {
     }
 
     .hobby-grid {
-        grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     }
 
     .how-it-works {
@@ -378,4 +378,54 @@ p {
 
 .start-button {
     padding: 12px 25px;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+#hobby-search {
+    width: 100%;
+    padding: 14px 18px;
+
+    border: 1px solid #d5dbd2;
+    border-radius: 10px;
+
+    font-size: 16px;
+    outline: none;
+}
+
+#hobby-search:focus {
+    border-color: #263326;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px auto 40px;
+}
+
+.filter-button {
+    background-color: white;
+    color: #263326;
+    border: 1px solid #d5dbd2;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.filter-button.active {
+    background-color: #263326;
+    color: white;
+}
+
+#no-results {
+    display: none;
+    grid-column: 1 / -1;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
 }
