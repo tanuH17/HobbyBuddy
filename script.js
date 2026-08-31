@@ -80,3 +80,88 @@ filterButtons.forEach(function (button) {
     });
 
 });
+
+function toggleLike(button, originalCount) {
+
+    const count = button.querySelector("span");
+
+    const isLiked = button.classList.contains("liked");
+
+    if (isLiked) {
+
+        button.classList.remove("liked");
+        button.firstChild.textContent = "♡ ";
+        count.textContent = originalCount;
+
+    } else {
+
+        button.classList.add("liked");
+        button.firstChild.textContent = "♥ ";
+        count.textContent = originalCount + 1;
+
+    }
+}
+
+function createPost() {
+
+    const input = document.getElementById("post-input");
+    const hobbySelect = document.getElementById("post-hobby");
+
+    const text = input.value.trim();
+    const hobby = hobbySelect.value;
+    const postType = document.querySelector(
+    'input[name="post-type"]:checked'
+    ).value;
+    
+
+    if (text === "") {
+        alert("Please write something before publishing.");
+        return;
+    }
+
+    if (hobby === "") {
+        alert("Please select a hobby.");
+        return;
+    }
+
+    const feed = document.querySelector(".feed");
+
+    const post = document.createElement("article");
+    post.classList.add("post-card");
+
+    post.innerHTML = `
+        <div class="post-header">
+
+            <div class="user-avatar">Y</div>
+
+            <div class="user-info">
+                <h3>You</h3>
+                <span>${hobby} · ${postType}</span>
+            </div>
+
+        </div>
+
+        <p class="post-text"></p>
+
+        <div class="post-actions">
+
+            <button 
+                class="like-button"
+                onclick="toggleLike(this, 0)"
+            >
+                ♡ <span>0</span>
+            </button>
+
+            <button>💬 0</button>
+
+            <button>↗ Share</button>
+
+        </div>
+    `;
+    post.querySelector(".post-text").textContent = text;
+
+    feed.prepend(post);
+
+    input.value = "";
+    hobbySelect.value = "";
+}

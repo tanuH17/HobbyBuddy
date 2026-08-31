@@ -217,6 +217,146 @@
 
 </section>
 
+<section class="community-feed">
+
+    <h2>Community</h2>
+
+    <p class="section-description">
+        Learn, share and connect through hobbies.
+    </p>
+
+    <div class="post-composer">
+
+    <div class="composer-header">
+        <div class="user-avatar">Y</div>
+        <div>
+            <h3>Share something</h3>
+            <span>Share your hobby with the community</span>
+        </div>
+    </div>
+
+    <textarea 
+        id="post-input"
+        placeholder="What are you learning or creating?"
+    ></textarea>
+
+    <select id="post-hobby">
+    <option value="">Select a hobby</option>
+    <option value="Guitar">🎸 Guitar</option>
+    <option value="Cooking">🍳 Cooking</option>
+    <option value="Gardening">🌱 Gardening</option>
+    <option value="Drawing">🎨 Drawing</option>
+    <option value="Photography">📷 Photography</option>
+    <option value="Pottery">🏺 Pottery</option>
+    </select>
+
+    <div class="post-type">
+
+    <span>Post type:</span>
+
+    <label>
+        <input type="radio" name="post-type" value="text" checked>
+        Text
+    </label>
+
+    <label>
+        <input type="radio" name="post-type" value="video">
+        Video
+    </label>
+
+    <label>
+        <input type="radio" name="post-type" value="image">
+        Image
+    </label>
+
+    </div>
+
+    <div class="composer-footer">
+
+        <div class="composer-options">
+            <button type="button">🎥 Video</button>
+            <button type="button">🖼️ Image</button>
+        </div>
+
+        <button 
+            type="button" 
+            class="publish-button"
+            onclick="createPost()"
+        >
+            Publish
+        </button>
+
+    </div>
+
+    </div>
+
+    <div class="feed">
+
+        <article class="post-card">
+
+            <div class="post-header">
+                <div class="user-avatar">A</div>
+
+                <div class="user-info">
+                    <h3>Alex</h3>
+                    <span>🎸 Guitar</span>
+                </div>
+            </div>
+
+            <p class="post-text">
+                Finally started practicing guitar today!
+                Sharing my first steps with the community.
+            </p>
+
+            <div class="post-media">
+                🎸
+            </div>
+
+            <div class="post-actions">
+                <button class="like-button" onclick="toggleLike(this, 24)">
+                  ♡ <span>24</span>
+                </button>
+                <button>💬 5</button>
+                <button>↗ Share</button>
+            </div>
+
+        </article>
+
+
+        <article class="post-card">
+
+            <div class="post-header">
+                <div class="user-avatar">M</div>
+
+                <div class="user-info">
+                    <h3>Mia</h3>
+                    <span>🎨 Drawing</span>
+                </div>
+            </div>
+
+            <p class="post-text">
+                Tried a new drawing technique today.
+                Still learning, but really enjoying the process!
+            </p>
+
+            <div class="post-media">
+                🎨
+            </div>
+
+            <div class="post-actions">
+                <button class="like-button" onclick="toggleLike(this, 18)">
+                  ♡ <span>18</span>
+                </button>
+                <button>💬 3</button>
+                <button>↗ Share</button>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
 <div id="hobby-modal" class="modal">
 
     <div class="modal-content">
