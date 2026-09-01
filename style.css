@@ -628,3 +628,144 @@ p {
     gap: 5px;
     cursor: pointer;
 }
+.profile-section {
+    padding: 80px 20px;
+}
+
+.profile-card {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background-color: white;
+    border: 1px solid #e1e5df;
+    border-radius: 15px;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #263326;
+    color: white;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.profile-card h2 {
+    margin-bottom: 10px;
+}
+
+.profile-bio {
+    max-width: 500px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+}
+
+.profile-hobbies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.profile-hobbies span {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background-color: #eef2eb;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #e1e5df;
+}
+
+.profile-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-stats strong {
+    font-size: 20px;
+}
+
+.profile-stats span {
+    font-size: 14px;
+}
+.profile-editor {
+    display: none;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+#profile-name-input,
+#profile-bio-input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 15px;
+    margin-bottom: 12px;
+
+    border: 1px solid #d5dbd2;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    outline: none;
+}
+
+#profile-bio-input {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.edit-profile-button,
+.save-profile-button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.edit-profile-button {
+    margin-bottom: 20px;
+}
+
+.save-profile-button {
+    background-color: #263326;
+    color: white;
+}
+.hobby-selection {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.hobby-selection p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hobby-selection label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 5px 10px 5px 0;
+    cursor: pointer;
+}

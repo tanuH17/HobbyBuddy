@@ -164,4 +164,117 @@ function createPost() {
 
     input.value = "";
     hobbySelect.value = "";
+    updatePostCount();
 }
+function updatePostCount() {
+
+    const posts = document.querySelectorAll(".feed .post-card");
+
+    document.getElementById("post-count").textContent = posts.length;
+
+}
+function openProfileEditor() {
+
+    const editor = document.getElementById("profile-editor");
+
+    editor.style.display = "block";
+}
+function saveProfile() {
+
+    const nameInput = document.getElementById("profile-name-input");
+    const bioInput = document.getElementById("profile-bio-input");
+
+    const name = nameInput.value.trim();
+    const bio = bioInput.value.trim();
+    const hobbyCheckboxes = document.querySelectorAll(
+    '.hobby-selection input[type="checkbox"]'
+    );
+
+    const selectedHobbies = [];
+
+    hobbyCheckboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+        selectedHobbies.push(checkbox.value);
+    }
+    });
+
+    if (name === "") {
+        alert("Please enter your name.");
+        return;
+    }
+    if (selectedHobbies.length === 0) {
+    alert("Please select at least one hobby.");
+    return;
+    }
+
+    document.getElementById("profile-name").textContent = name;
+
+    if (bio !== "") {
+        document.getElementById("profile-bio").textContent = bio;
+    }
+    const profileHobbies = document.getElementById("profile-hobbies");
+
+    profileHobbies.innerHTML = "";
+
+    selectedHobbies.forEach(function (hobby) {
+
+    const hobbyTag = document.createElement("span");
+
+    hobbyTag.textContent = hobby;
+
+    profileHobbies.appendChild(hobbyTag);
+
+    });
+
+    document.getElementById("hobby-count").textContent =
+    selectedHobbies.length;
+    localStorage.setItem("profileName", name);
+    localStorage.setItem("profileBio", bio);
+    localStorage.setItem(
+    "profileHobbies",
+    JSON.stringify(selectedHobbies)
+    );
+    document.getElementById("profile-editor").style.display = "none";
+
+    nameInput.value = "";
+    bioInput.value = "";
+}
+function loadProfile() {
+
+    const savedName = localStorage.getItem("profileName");
+    const savedBio = localStorage.getItem("profileBio");
+    const savedHobbies = localStorage.getItem("profileHobbies");
+
+    if (savedName) {
+        document.getElementById("profile-name").textContent = savedName;
+    }
+
+    if (savedBio) {
+        document.getElementById("profile-bio").textContent = savedBio;
+    }
+
+    if (savedHobbies) {
+
+        const hobbies = JSON.parse(savedHobbies);
+
+        const profileHobbies =
+            document.getElementById("profile-hobbies");
+
+        profileHobbies.innerHTML = "";
+
+        hobbies.forEach(function (hobby) {
+
+            const hobbyTag = document.createElement("span");
+
+            hobbyTag.textContent = hobby;
+
+            profileHobbies.appendChild(hobbyTag);
+
+        });
+
+        document.getElementById("hobby-count").textContent =
+            hobbies.length;
+    }
+}
+
+loadProfile();

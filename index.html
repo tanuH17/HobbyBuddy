@@ -19,6 +19,7 @@
             <li><a href="#">Explore</a></li>
             <li><a href="#">Learn</a></li>
             <li><a href="#">Community</a></li>
+            <a href="#profile">Profile</a>
         </ul>
 
         <button>Login</button>
@@ -379,6 +380,111 @@
 
 </div>
 
-    <script src="script.js"></script>
+    
+    <section id="profile" class="profile-section">
+
+    <div class="profile-card">
+
+        <div class="profile-avatar">
+            Y
+        </div>
+
+        <h2 id="profile-name">Your Name</h2>
+        <button 
+        class="edit-profile-button"
+         onclick="openProfileEditor()"
+    >
+        ✏️ Edit Profile
+    </button>
+
+        <p id="profile-bio" class="profile-bio">
+            Exploring hobbies, learning new things and sharing the journey.
+        </p>
+
+        <div id="profile-editor" class="profile-editor">
+            <div class="hobby-selection">
+
+    <p>Select your hobbies:</p>
+
+    <label>
+        <input type="checkbox" value="🎸 Guitar">
+        Guitar
+    </label>
+
+    <label>
+        <input type="checkbox" value="🎨 Drawing">
+        Drawing
+    </label>
+
+    <label>
+        <input type="checkbox" value="🌱 Gardening">
+        Gardening
+    </label>
+
+    <label>
+        <input type="checkbox" value="🍳 Cooking">
+        Cooking
+    </label>
+
+    <label>
+        <input type="checkbox" value="📷 Photography">
+        Photography
+    </label>
+
+    <label>
+        <input type="checkbox" value="🏺 Pottery">
+        Pottery
+    </label>
+
+</div>
+    <input 
+        type="text"
+        id="profile-name-input"
+        placeholder="Your name"
+    >
+
+    <textarea
+        id="profile-bio-input"
+        placeholder="Tell the community about yourself..."
+    ></textarea>
+
+    <button 
+        class="save-profile-button"
+        onclick="saveProfile()"
+    >
+        Save Profile
+    </button>
+
+</div>
+
+        <div class="profile-hobbies" id="profile-hobbies">
+            <span>🎸 Guitar</span>
+            <span>🎨 Drawing</span>
+            <span>🌱 Gardening</span>
+        </div>
+
+        <div class="profile-stats">
+            <div>
+                <strong id="post-count">0</strong>
+                <span>Posts</span>
+            </div>
+
+            <div>
+                <strong id="hobby-count">3</strong>
+                <span>Hobbies</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>Connections</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>
