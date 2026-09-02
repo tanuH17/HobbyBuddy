@@ -102,7 +102,7 @@ function toggleLike(button, originalCount) {
     }
 }
 
-function createPost() {
+function createPost(savedPost = true) {
 
     const input = document.getElementById("post-input");
     const hobbySelect = document.getElementById("post-hobby");
@@ -161,7 +161,19 @@ function createPost() {
     post.querySelector(".post-text").textContent = text;
 
     feed.prepend(post);
+    addPostToProfile(text, hobby, postType);
 
+    if (savedPost){
+    const savedPost = {
+    text: text,
+    hobby: hobby,
+    postType: postType
+    };
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    posts.unshift(savedPost);
+    localStorage.setItem("posts", JSON.stringify(posts));
+    }
     input.value = "";
     hobbySelect.value = "";
     updatePostCount();
@@ -277,4 +289,70 @@ function loadProfile() {
     }
 }
 
+function addPostToProfile(text, hobby, postType) {
+
+    const profilePosts = document.getElementById("profile-posts");
+
+    const emptyMessage =
+        profilePosts.querySelector(".empty-posts");
+
+    if (emptyMessage) {
+        emptyMessage.remove();
+    }
+
+    const profilePost = document.createElement("div");
+
+    profilePost.classList.add("profile-post");
+
+    const meta = document.createElement("div");
+    meta.classList.add("profile-post-meta");
+
+    meta.textContent = `${hobby} · ${postType}`;
+
+    const postText = document.createElement("p");
+    postText.classList.add("profile-post-text");
+
+    postText.textContent = text;
+
+    profilePost.appendChild(meta);
+    profilePost.appendChild(postText);
+
+    profilePosts.prepend(profilePost);
+}
+function loadSavedPosts() {
+
+    const posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts.forEach(function(post) {
+
+        createPostFromSavedData(post);
+
+    });
+}
+function createPostFromSavedData(post) {
+
+    const feed = document.querySelector(".feed");
+
+    const postCard = document.createElement("div");
+
+    postCard.classList.add("post-card");
+
+    const postMeta = document.createElement("div");
+    postMeta.classList.add("post-meta");
+
+    postMeta.textContent = `${post.hobby} · ${post.postType}`;
+
+    const postText = document.createElement("p");
+    postText.textContent = post.text;
+
+    postCard.appendChild(postMeta);
+    postCard.appendChild(postText);
+
+    feed.appendChild(postCard);
+
+    addPostToProfile(post.text, post.hobby, post.postType);
+}
+
 loadProfile();
+loadSavedPosts();
+updatePostCount();

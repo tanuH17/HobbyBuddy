@@ -769,3 +769,40 @@ p {
     margin: 5px 10px 5px 0;
     cursor: pointer;
 }
+.my-posts {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e1e5df;
+    text-align: left;
+}
+
+.my-posts h3 {
+    margin-bottom: 20px;
+}
+
+#profile-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-post {
+    padding: 18px;
+    border: 1px solid #e1e5df;
+    border-radius: 12px;
+    background-color: #f9faf8;
+}
+
+.profile-post-meta {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.profile-post-text {
+    line-height: 1.5;
+}
+
+.empty-posts {
+    text-align: center;
+    font-size: 14px;
+}
