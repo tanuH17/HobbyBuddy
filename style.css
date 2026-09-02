@@ -806,3 +806,18 @@ p {
     text-align: center;
     font-size: 14px;
 }
+.delete-btn {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    color: #020202;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.delete-btn:hover {
+    background-color: #dddddd;
+}

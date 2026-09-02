@@ -347,10 +347,35 @@ function createPostFromSavedData(post) {
 
     postCard.appendChild(postMeta);
     postCard.appendChild(postText);
+    const deleteButton = document.createElement("button");
+
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", function() {
+       deletePost(post);
+       postCard.remove();
+    });
+    postCard.appendChild(deleteButton);
 
     feed.appendChild(postCard);
 
     addPostToProfile(post.text, post.hobby, post.postType);
+}
+function deletePost(postToDelete) {
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts = posts.filter(function(post) {
+        return !(
+            post.text === postToDelete.text &&
+            post.hobby === postToDelete.hobby &&
+            post.postType === postToDelete.postType
+        );
+    });
+
+    localStorage.setItem("posts", JSON.stringify(posts));
+
+    updatePostCount();
 }
 
 loadProfile();
