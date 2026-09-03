@@ -167,7 +167,8 @@ function createPost(savedPost = true) {
     const savedPost = {
     text: text,
     hobby: hobby,
-    postType: postType
+    postType: postType,
+    createdAt: Date.now()
     };
 
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
@@ -344,6 +345,11 @@ function createPostFromSavedData(post) {
 
     const postText = document.createElement("p");
     postText.textContent = post.text;
+    
+    const postTime = document.createElement("small");
+    postTime.textContent = getPostTime(post.createdAt);
+    postTime.dataset.createdAt = post.createdAt;
+    postCard.appendChild(postTime);
 
     postCard.appendChild(postMeta);
     postCard.appendChild(postText);
@@ -377,6 +383,49 @@ function deletePost(postToDelete) {
 
     updatePostCount();
 }
+function getPostTime(createdAt) {
+
+    const now = Date.now();
+    const difference = now - createdAt;
+
+    const seconds = Math.floor(difference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (seconds < 60) {
+        return "Just now";
+    }
+
+    if (minutes < 60) {
+        return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
+    }
+
+    if (hours < 24) {
+        return hours + (hours === 1 ? " hour ago" : " hours ago");
+    }
+
+    if (days === 1) {
+        return "Yesterday";
+    }
+
+    const date = new Date(createdAt);
+
+    return date.toLocaleDateString();
+}
+setInterval(function() {
+
+    const postTimes = document.querySelectorAll("[data-created-at]");
+
+    postTimes.forEach(function(postTime) {
+
+        const createdAt = Number(postTime.dataset.createdAt);
+
+        postTime.textContent = getPostTime(createdAt);
+
+    });
+
+}, 60000);
 
 loadProfile();
 loadSavedPosts();
